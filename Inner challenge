@@ -1,0 +1,21 @@
+SELECT country_code, size,
+  CASE WHEN size > 50000000
+            THEN 'large'
+       WHEN size > 1000000
+            THEN 'medium'
+       ELSE 'small' END
+       AS popsize_group
+INTO pop_plus       
+FROM populations
+WHERE year = 2015;
+
+-- Select fields
+SELECT c.name,c.continent,c.geosize_group,popsize_group
+-- From countries_plus (alias as c)
+FROM countries_plus as c
+  -- Join to pop_plus (alias as p)
+  INNER JOIN pop_plus as p
+    -- Match on country code
+    ON c.code=p.country_code
+-- Order the table    
+ORDER BY geosize_group;
