@@ -1,0 +1,10 @@
+-- Select fields
+SELECT name,code
+  -- From countries
+  FROM countries
+	-- Set theory clause
+	INTERSECT
+-- Select fields
+SELECT name,country_code
+  -- From cities
+  FROM cities;
