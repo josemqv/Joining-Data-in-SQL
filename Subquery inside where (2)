@@ -1,0 +1,10 @@
+-- Select fields
+SELECT name, country_code, urbanarea_pop
+  -- From cities
+  FROM cities
+-- Where city name in the field of capital cities
+WHERE name IN
+  -- Subquery
+  (SELECT capital
+   FROM countries)
+ORDER BY urbanarea_pop DESC;
