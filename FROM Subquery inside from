@@ -1,0 +1,15 @@
+-- Select fields (with aliases)
+SELECT code, COUNT(name) as lang_num
+  -- From languages
+  FROM languages
+-- Group by code
+GROUP BY code;
+
+
+SELECT c.local_name, subquery.lang_num
+  FROM countries as c,
+  	(SELECT code, COUNT(*) AS lang_num
+  	 FROM languages
+  	 GROUP BY code) AS subquery
+  WHERE c.code = subquery.code
+ORDER BY lang_num DESC;
