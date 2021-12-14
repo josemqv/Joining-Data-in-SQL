@@ -12,5 +12,5 @@ SELECT country_code
   -- From populations
   FROM populations
 -- Where life_expectancy is greater than
-WHERE life_expectancy>1.15*(SELECT AVG(life_expectancy) FROM populations as num) AND year=2015;
+WHERE life_expectancy>1.15*(SELECT AVG(life_expectancy) FROM populations WHERE year =2015) AND year=2015;
   -- 1.15 * subquery
