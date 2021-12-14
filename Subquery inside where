@@ -8,9 +8,10 @@ WHERE year=2015;
 
 
 -- Select fields
-SELECT country_code
+SELECT *
   -- From populations
   FROM populations
 -- Where life_expectancy is greater than
 WHERE life_expectancy>1.15*(SELECT AVG(life_expectancy) FROM populations WHERE year =2015) AND year=2015;
   -- 1.15 * subquery
+
